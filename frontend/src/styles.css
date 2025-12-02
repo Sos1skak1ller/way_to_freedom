@@ -1,0 +1,253 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+}
+
+body.theme-light {
+  --bg: #f3f4f6;
+  --text: #111827;
+  --muted: #6b7280;
+  --placeholder: #9ca3af;
+  --card-bg: #ffffff;
+  --border: #e5e7eb;
+  --shadow-strong: rgba(15, 23, 42, 0.08);
+  --shadow-soft: rgba(15, 23, 42, 0.06);
+  --accent: #4f46e5;
+  --accent-2: #6366f1;
+  --positive: #16a34a;
+  --negative: #dc2626;
+  background: var(--bg);
+  color: var(--text);
+}
+
+body.theme-dark {
+  --bg: #020617;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --placeholder: #6b7280;
+  --card-bg: #020617;
+  --border: #1e293b;
+  --shadow-strong: rgba(15, 23, 42, 0.55);
+  --shadow-soft: rgba(15, 23, 42, 0.45);
+  --accent: #6366f1;
+  --accent-2: #4f46e5;
+  --positive: #22c55e;
+  --negative: #f97373;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.header {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.75rem;
+}
+
+.theme-toggle {
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  padding: 0.35rem 0.9rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.controls {
+  background: var(--card-bg);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 10px 30px var(--shadow-strong);
+  margin-bottom: 1.5rem;
+}
+
+.controls-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  min-width: 140px;
+}
+
+.field label {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 0.3rem;
+}
+
+input,
+select {
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  padding: 0.35rem 0.5rem;
+  font-size: 0.9rem;
+  background: var(--card-bg);
+  color: var(--text);
+}
+
+.params {
+  margin-top: 0.5rem;
+}
+
+.params h3 {
+  margin: 0 0 0.25rem;
+  font-size: 0.9rem;
+}
+
+.params-grid {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.primary-btn {
+  margin-top: 0.75rem;
+  padding: 0.5rem 1.4rem;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.primary-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.error {
+  margin-top: 0.6rem;
+  color: var(--negative);
+  font-size: 0.85rem;
+}
+
+.charts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.chart-card,
+.metrics-card,
+.trades-card {
+  background: var(--card-bg);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 8px 25px var(--shadow-soft);
+}
+
+.chart-card h2,
+.metrics-card h2,
+.trades-card h2 {
+  margin-top: 0;
+  font-size: 1rem;
+}
+
+.placeholder {
+  font-size: 0.9rem;
+  color: var(--placeholder);
+}
+
+.metrics-trades {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
+  gap: 1rem;
+}
+
+.metrics-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.metrics-card li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.15rem 0;
+}
+
+.metric-positive {
+  color: var(--positive);
+}
+
+.metric-negative {
+  color: var(--negative);
+}
+
+.metric-neutral {
+  color: inherit;
+}
+
+.table-wrapper {
+  max-height: 260px;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+th,
+td {
+  border-bottom: 1px solid var(--border);
+  padding: 0.3rem 0.35rem;
+  text-align: right;
+}
+
+th:first-child,
+td:first-child {
+  text-align: left;
+}
+
+.value-positive {
+  color: var(--positive);
+}
+
+.value-negative {
+  color: var(--negative);
+}
+
+.value-neutral {
+  color: inherit;
+}
+
+@media (max-width: 768px) {
+  .metrics-trades {
+    grid-template-columns: 1fr;
+  }
+}
+
+
