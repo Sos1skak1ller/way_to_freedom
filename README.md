@@ -62,6 +62,21 @@
       TradesTable.jsx
 ```
 
+### Запуск через Docker
+
+В корне проекта:
+
+```bash
+docker compose up --build
+```
+
+После этого:
+
+- backend будет доступен на `http://localhost:8000`
+- frontend (React+Vite) — на `http://localhost:5173`
+
+Фронтенд внутри контейнера по-прежнему ходит на `http://localhost:8000/backtest/run`, так как backend проброшен на хост.
+
 ### Запуск backend
 
 ```bash
@@ -88,20 +103,6 @@ npm run dev
 
 Фронтенд ожидает backend по адресу `http://localhost:8000`.
 
-### Запуск через Docker
-
-В корне проекта:
-
-```bash
-docker compose up --build
-```
-
-После этого:
-
-- backend будет доступен на `http://localhost:8000`
-- frontend (React+Vite) — на `http://localhost:5173`
-
-Фронтенд внутри контейнера по-прежнему ходит на `http://localhost:8000/backtest/run`, так как backend проброшен на хост.
 
 ### Пример запроса к API бэктеста
 
